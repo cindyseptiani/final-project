@@ -132,13 +132,13 @@ public class CreateAccount extends javax.swing.JFrame {
         // TODO add your handling code here:
            
         try {
-            String url = "jdbc:mysql://localhost:3306/finalproject2";
+            String url = "jdbc:mysql://localhost:3306/oishisushi";
             String userid = "root";
             String password = "root";
             String sql = "INSERT INTO login_page (`Username`, `Email`, `Password`, `Phone Number`, `Address`) VALUES (?,?,?,?,?)";
             String sql2 = "SELECT * FROM login_page";
             
-            Connection connection = DriverManager.getConnection(url, userid,password);
+            Connection connection = DriverManager.getConnection(url,userid,password);
             PreparedStatement preparedStmt = connection.prepareStatement(sql);
              
             preparedStmt.setString(1, username.getText());
@@ -203,6 +203,7 @@ public class CreateAccount extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new CreateAccount().setVisible(true);
             }
